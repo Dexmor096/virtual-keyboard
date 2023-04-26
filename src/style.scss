@@ -1,0 +1,182 @@
+  @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
+
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
+	body {
+		font-family: 'Amatic SC', cursive;
+		font-size: 24px;
+		font-weight: 700;
+		transition: .2s;
+		background-color: #000;
+		// background: url(./img/nordwood-themes.jpg);
+		// background-repeat: repeat;
+		// background-size: 60%;
+	}
+
+	.container{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		height: 100vh;
+		margin: 0 10px;
+	}
+
+	.keyboard {
+		&_wrapper{
+			position: relative;
+			overflow: hidden;
+			border-radius: 6px;
+			max-width: 990px;
+			width: 100%;
+			background-color: #e7e7e7;
+			margin-top: 50px;
+		}
+		&_display {
+			width: 990px;
+			height: 150px;
+			background-color: #000;
+			border-radius: 5px;
+			color:#fff;
+			resize: none;
+			font-size: 32px;
+			outline: none;
+			padding-left: 10px;
+		}
+		&_title {
+			border: 1px solid #fff;
+			border-radius: 10px;
+			padding: 25px;
+			margin-bottom: 60px;
+			box-shadow: 0 0 .24px #fff,
+									0 0 .24px #fff,
+									0 0 48px #0fa,
+									0 0 19px #0fa,
+									0 0 67px #0fa,
+									inset 0 0 32px #0fa;
+			animation: flicker 1.5s infinite alternate;
+		}
+	}
+	@keyframes flicker {
+		0%, 18%, 22%, 25%, 53%, 57%, 100% {
+				text-shadow:
+				0 0 4px #fff,
+				0 0 11px #fff,
+				0 0 19px #fff,
+				0 0 40px #0fa,
+				0 0 50px #0fa,
+				0 0 60px #0fa,
+				0 0 80px #0fa,
+				0 0 120px #0fa;
+		}
+		20%, 24%, 55% {        
+				text-shadow: none;
+		}    
+	}
+	@keyframes flicker_keyboard_1 {
+		0%, 33%, 40%, 47%, 55%, 67%, 100% {
+				text-shadow:
+				0 0 4px #fff,
+				0 0 11px #fff,
+				0 0 19px #fff,
+				0 0 40px #bc13fe,
+				0 0 50px #bc13fe,
+				0 0 60px #bc13fe,
+				0 0 80px #bc13fe,
+				0 0 120px #bc13fe;
+		}
+		30%, 90% {        
+				text-shadow: none;
+		}    
+	}
+	.row {
+		display: flex;
+	}
+
+.neonBox {
+	box-shadow: 
+	0 0 .5px #fff,
+	0 0 .7px #fff,
+	0 0 10px #bc13fe,
+	0 0 12px #bc13fe,
+	0 0 15px #bc13fe,
+	inset 0 0 10px #bc13fe;
+}
+.neon_text_flicker {
+  color: #fff;
+	animation: flicker 1.5s infinite alternate;
+}
+.neon_keyboard_flicker {
+	color: #fff;
+	animation: flicker_keyboard_1 1.5s infinite alternate;
+}
+	.keys {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: hsl(0, 2%, 13%);
+		border-radius: 5px;
+		width: 60px;
+		height: 60px;
+		margin: 3px;
+		color: #fff;
+		box-shadow: 
+		0 0 .2px #fff,
+		0 0 .3px #fff,
+		0 0 3px #bc13fe,
+		0 0 4px #bc13fe,
+		0 0 5px #bc13fe,
+		inset 0 0 10px #bc13fe;
+		text-shadow:
+    0 0 1px #fff,
+    0 0 5px #fff,
+    0 0 9px #fff,
+    0 0 11px #bc13fe,
+    0 0 15px #bc13fe,
+    0 0 17px #bc13fe,
+    0 0 22px #bc13fe,
+    0 0 51px #bc13fe;
+		&_backspace{
+			width: 125px;
+		}
+		&_tab {
+			width: 90px;
+		}
+		&_slash {
+			width: 95px;
+		}
+		&_capsLock {
+			width: 98px;
+		}
+		&_enter {
+			width: 153px;
+		}
+		&_shift {
+			width: 125px;
+		}
+		&_space {
+			max-width: 455px;
+			width: 100%;
+		}
+	}
+	.keys.active {
+		background-color: #bc13fe;
+		color: #000;
+	}
+	.keys.remove {
+		animation: keys_remove_animation .5s forwards;
+	}
+	@keyframes keys_remove_animation {
+		0% {
+			background-color: #bc13fe;
+			color: #fff;
+		}
+		100% {
+			background-color: #fff;
+			color: #fff;
+		}
+	}
