@@ -34,6 +34,15 @@ body {
 }
 
 .keyboard_wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   position: relative;
   overflow: hidden;
   border-radius: 6px;
@@ -54,7 +63,7 @@ body {
   padding-left: 10px;
 }
 .keyboard_title {
-  border: 1px solid #fff;
+  border: 3px solid #fff;
   border-radius: 10px;
   padding: 25px;
   margin-bottom: 60px;
@@ -120,7 +129,7 @@ body {
           animation: flicker_keyboard_1 1.5s infinite alternate;
 }
 
-.keys {
+.key {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -134,41 +143,37 @@ body {
   border-radius: 5px;
   width: 60px;
   height: 60px;
-  margin: 3px;
+  margin: 2px;
   color: #fff;
+  cursor: pointer;
   -webkit-box-shadow: 0 0 0.2px #fff, 0 0 0.3px #fff, 0 0 3px #bc13fe, 0 0 4px #bc13fe, 0 0 5px #bc13fe, inset 0 0 10px #bc13fe;
           box-shadow: 0 0 0.2px #fff, 0 0 0.3px #fff, 0 0 3px #bc13fe, 0 0 4px #bc13fe, 0 0 5px #bc13fe, inset 0 0 10px #bc13fe;
   text-shadow: 0 0 1px #fff, 0 0 5px #fff, 0 0 9px #fff, 0 0 11px #bc13fe, 0 0 15px #bc13fe, 0 0 17px #bc13fe, 0 0 22px #bc13fe, 0 0 51px #bc13fe;
 }
-.keys_backspace {
+.key_backspace {
   width: 125px;
 }
-.keys_tab {
+.key_tab {
   width: 90px;
 }
-.keys_slash {
+.key_slash {
   width: 95px;
 }
-.keys_capsLock {
+.key_capsLock {
   width: 98px;
 }
-.keys_enter {
+.key_enter {
   width: 153px;
 }
-.keys_shift {
+.key_shift {
   width: 125px;
 }
-.keys_space {
+.key_space {
   max-width: 455px;
   width: 100%;
 }
 
-.keys.active {
-  background-color: #bc13fe;
-  color: #000;
-}
-
-.keys.remove {
+.key.active {
   -webkit-animation: keys_remove_animation 0.5s forwards;
           animation: keys_remove_animation 0.5s forwards;
 }
@@ -193,4 +198,39 @@ body {
     background-color: #fff;
     color: #fff;
   }
+}
+.key[data-code=Backspace] {
+  width: 153px;
+}
+
+.key[data-code=Tab] {
+  width: 90px;
+}
+
+.key[data-code=Backslash] {
+  width: 60px;
+}
+
+.key[data-code=CapsLock] {
+  width: 110px;
+}
+
+.key[data-code=Enter] {
+  width: 167px;
+  -webkit-animation: flicker_keyboard_1 1.5s infinite alternate;
+          animation: flicker_keyboard_1 1.5s infinite alternate;
+}
+
+.key[data-code=ShiftLeft],
+.key[data-code=ShiftRight] {
+  width: 139px;
+}
+
+.key[data-code=Space] {
+  width: 444px;
+}
+
+.key[data-code=ControlRight],
+.key[data-code=ControlLeft] {
+  width: 75px;
 }
