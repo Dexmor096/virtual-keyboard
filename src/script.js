@@ -279,7 +279,7 @@ const data = {
     {
       code: 'KeyZ',
       key: 'z',
-      capsKey: 'Z¨',
+      capsKey: 'Z',
     },
     {
       code: 'KeyX',
@@ -374,26 +374,31 @@ const data = {
 };
 // constructor
 class Key {
-  constructor({ key, code, shiftName }) {
-    this.key = key;
-    this.code = code;
-    this.shiftName = shiftName;
-  }
-
   // keys generator
   keyGenerator() {
     const key = document.createElement('div');
     key.classList.add('key');
     key.innerHTML = this.key;
     key.dataset.code = this.code;
+    key.dataset.shiftKey = this.shiftKey;
+    key.dataset.capsKey = this.capsKey;
     return key;
   }
-}
 
+  constructor({
+    key, code, shiftKey, capsKey,
+  }) {
+    this.key = key;
+    this.code = code;
+    this.shiftKey = shiftKey;
+    this.capsKey = capsKey;
+  }
+}
 // render
 const renderKeysToDom = () => {
   data.eng.forEach((el) => {
     const key = new Key(el);
+    // console.log(key);
     document.querySelector('.keyboard_wrapper').append(key.keyGenerator());
   });
 };
@@ -424,14 +429,21 @@ const removeActiveClass = (code) => {
   const currentKey = document.querySelector(`.key[data-code=${code}]`);
   currentKey.classList.remove('active');
 };
-
+// const catchCapsKey = (event, data) => {
+//   if (event.code === 'CapsLock') {
+//     console.log('left shift be pressed');
+//     data.isCapsed = !data.isCapsed;
+//     console.log(data.isCapsed);
+//     renderKeysToDom();
+//   }
+// };
 // слушатель для нажатия кнопки
 const downKeyHandler = () => {
   const { body } = document;
   body.addEventListener('keydown', (event) => {
     event.preventDefault();
     addActiveClass(event.code);
-    console.log(event);
+    // проверка на капс => функция обработки капса
   });
 };
 // слушатель для отжатия кнопки
@@ -442,14 +454,39 @@ const upKeyHandler = () => {
     removeActiveClass(event.code);
   });
 };
+// обнуление контейнера
+// const getResetContainer = () => {
+//   const { body } = document;
+//   body.innerHTML = '';
+// };
 
-
-
-
-
-// слушатель для перерендера (капс)
-
+// функция ререндера отдельных кнопок
+const rerenderKeyContent = () => {
+  const keySet = document.querySelectorAll('.key');
+  for (let i = 0; i < keySet.length; i += 1) {
+    const currentKeyText = keySet[i].innerText;
+    if (data.isCapsed) { // +проверка не нажат ли шифт
+      const newKeyText = data.eng[i].capsKey ? data.eng[i].capsKey : data.eng[i].key;
+      const resultText = currentKeyText !== newKeyText ? newKeyText : currentKeyText;
+      keySet[i].innerHTML = resultText;
+    } else {
+      keySet[i].innerHTML = data.eng[i].key;
+    }
+  }
+};
 // init render function
+// слушатель для перерендера (капс) переделать в функцию
+const catchCapsKey = () => {
+  const { body } = document;
+  body.addEventListener('keydown', (event) => {
+    event.preventDefault();
+    data.isCapsed = !data.isCapsed;
+    console.log(data.isCapsed);
+    if (event.code === 'CapsLock') {
+      rerenderKeyContent();
+    }
+  });
+};
 window.onload = function () {
   // render global wrapper
   renderGlobalWrapper();
@@ -457,4 +494,5 @@ window.onload = function () {
   renderKeysToDom();
   downKeyHandler();
   upKeyHandler();
+  catchCapsKey();
 };
