@@ -1,7 +1,6 @@
 const data = {
   isCapsed: false,
   englishLang: true,
-  langFlag: false,
   ru: [
     {
       code: 'Backquote',
@@ -391,51 +390,61 @@ const data = {
       code: 'KeyQ',
       key: 'q',
       capsKey: 'Q',
+      shiftKey: 'Q',
     },
     {
       code: 'KeyW',
       key: 'w',
       capsKey: 'W',
+      shiftKey: 'W',
     },
     {
       code: 'KeyE',
       key: 'e',
       capsKey: 'E',
+      shiftKey: 'E',
     },
     {
       code: 'KeyR',
       key: 'r',
       capsKey: 'R',
+      shiftKey: 'R',
     },
     {
       code: 'KeyT',
       key: 't',
       capsKey: 'T',
+      shiftKey: 'T',
     },
     {
       code: 'KeyY',
       key: 'y',
       capsKey: 'Y',
+      shiftKey: 'Y',
     },
     {
       code: 'KeyU',
       key: 'u',
       capsKey: 'U',
+      shiftKey: 'U',
     },
     {
       code: 'KeyI',
       key: 'i',
       capsKey: 'I',
+      shiftKey: 'I',
     },
     {
       code: 'KeyO',
       key: 'o',
       capsKey: 'O',
+      shiftKey: 'O',
     },
     {
       code: 'KeyP',
       key: 'p',
       capsKey: 'P',
+      shiftKey: 'P',
     },
     {
       code: 'BracketLeft',
@@ -464,51 +473,60 @@ const data = {
       code: 'KeyA',
       key: 'a',
       capsKey: 'A',
+      shiftKey: 'A',
     },
     {
       code: 'KeyS',
       key: 's',
       capsKey: 'S',
+      shiftKey: 'S',
     },
     {
       code: 'KeyD',
       key: 'd',
       capsKey: 'D',
+      shiftKey: 'D',
     },
     {
       code: 'KeyF',
       key: 'f',
       capsKey: 'F',
+      shiftKey: 'F',
     },
     {
       code: 'KeyG',
       key: 'g',
       capsKey: 'G',
+      shiftKey: 'G',
     },
     {
       code: 'KeyH',
       key: 'h',
       capsKey: 'H',
+      shiftKey: 'H',
     },
     {
       code: 'KeyJ',
       key: 'j',
       capsKey: 'J',
+      shiftKey: 'J',
     },
     {
       code: 'KeyK',
       key: 'k',
       capsKey: 'K',
+      shiftKey: 'K',
     },
     {
       code: 'KeyL',
       key: 'l',
       capsKey: 'L',
+      shiftKey: 'L',
     },
     {
       code: 'Semicolon',
       key: ';',
-      shiftKey: ':¨',
+      shiftKey: ':',
     },
     {
       code: 'Quote',
@@ -527,36 +545,43 @@ const data = {
       code: 'KeyZ',
       key: 'z',
       capsKey: 'Z',
+      shiftKey: 'Z',
     },
     {
       code: 'KeyX',
       key: 'x',
       capsKey: 'X',
+      shiftKey: 'X',
     },
     {
       code: 'KeyC',
       key: 'c',
       capsKey: 'C',
+      shiftKey: 'C',
     },
     {
       code: 'KeyV',
       key: 'v',
       capsKey: 'V',
+      shiftKey: 'V',
     },
     {
       code: 'KeyB',
       key: 'b',
       capsKey: 'B',
+      shiftKey: 'B',
     },
     {
       code: 'KeyN',
       key: 'n',
       capsKey: 'N',
+      shiftKey: 'N',
     },
     {
       code: 'KeyM',
       key: 'm',
       capsKey: 'M',
+      shiftKey: 'M',
     },
     {
       code: 'Comma',
@@ -678,14 +703,6 @@ const removeActiveClass = (code) => {
   const currentKey = document.querySelector(`.key[data-code=${code}]`);
   currentKey.classList.remove('active');
 };
-// const catchCapsKey = (event, data) => {
-//   if (event.code === 'CapsLock') {
-//     console.log('left shift be pressed');
-//     data.isCapsed = !data.isCapsed;
-//     console.log(data.isCapsed);
-//     renderKeysToDom();
-//   }
-// };
 
 // обнуление контейнера
 // const getResetContainer = () => {
@@ -694,18 +711,24 @@ const removeActiveClass = (code) => {
 // };
 
 // функция ререндера отдельных кнопок
-const rerenderKeyContent = () => {
+const rerenderKeyContent = (event) => {
   // переменная с массивом языка
-  const langArray = data.englishLang ? data.eng : data.ru;
+  const langArr = data.englishLang ? data.eng : data.ru;
+
   const keySet = document.querySelectorAll('.key');
   for (let i = 0; i < keySet.length; i += 1) {
     const currentKeyText = keySet[i].innerText;
+    if (event.shiftKey) {
+      const newKeyText = langArr[i].shiftKey ? langArr[i].shiftKey : langArr[i].key;
+      const resultText = currentKeyText !== langArr[i].key ? langArr[i].key : newKeyText;
+      keySet[i].innerHTML = resultText;
+    } else
     if (data.isCapsed) { // +проверка не нажат ли шифт
-      const newKeyText = langArray[i].capsKey ? langArray[i].capsKey : langArray[i].key;
+      const newKeyText = langArr[i].capsKey ? langArr[i].capsKey : langArr[i].key;
       const resultText = currentKeyText !== newKeyText ? newKeyText : currentKeyText;
       keySet[i].innerHTML = resultText;
     } else {
-      keySet[i].innerHTML = langArray[i].key;
+      keySet[i].innerHTML = langArr[i].key;
     }
   }
 };
@@ -723,16 +746,19 @@ const rerenderKeyContent = () => {
 // };
 
 const catchCapsKey = (event) => {
-  // const {body} = document;
-  data.isCapsed = !data.isCapsed;
   if (event.code === 'CapsLock') {
-    rerenderKeyContent();
+    data.isCapsed = !data.isCapsed;
+    rerenderKeyContent(event);
+  }
+};
+const catchShiftKeys = (event) => {
+  if (event.code === 'ShiftLeft') {
+    rerenderKeyContent(event);
   }
 };
 const catchLanguageToggleKeys = (event) => {
   if (event.code === 'ShiftLeft' && event.altKey) {
     data.englishLang = !data.englishLang;
-    console.log('lang is toggled');
     rerenderKeyContent();
   }
 };
@@ -742,6 +768,7 @@ const downKeyHandler = () => {
   body.addEventListener('keydown', (event) => {
     event.preventDefault();
     addActiveClass(event.code);
+    catchShiftKeys(event);
     // проверка на капс => функция обработки капса
     catchCapsKey(event);
     catchLanguageToggleKeys(event);
@@ -753,14 +780,13 @@ const upKeyHandler = () => {
   body.addEventListener('keyup', (event) => {
     event.preventDefault();
     removeActiveClass(event.code);
+    rerenderKeyContent(event);
   });
 };
 
 // init render function
 window.onload = function () {
-  // render global wrapper
   renderGlobalWrapper();
-  // render keys
   renderKeysToDom();
   downKeyHandler();
   upKeyHandler();

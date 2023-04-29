@@ -76,22 +76,6 @@ body {
 		text-shadow: none;
 	}
 }
-// @keyframes flicker_keyboard_1 {
-// 	0%,
-// 	33%,
-// 	40%,
-// 	47%,
-// 	55%,
-// 	67%,
-// 	100% {
-// 		text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #bc13fe, 0 0 50px #bc13fe, 0 0 60px #bc13fe,
-// 			0 0 80px #bc13fe, 0 0 120px #bc13fe;
-// 	}
-// 	30%,
-// 	90% {
-// 		text-shadow: none;
-// 	}
-// }
 
 @keyframes flicker_keyboard_1 {
   0%, 18%, 22%, 25%, 53%, 57%, 100% {
