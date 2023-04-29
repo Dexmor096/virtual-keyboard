@@ -76,22 +76,40 @@ body {
 		text-shadow: none;
 	}
 }
+// @keyframes flicker_keyboard_1 {
+// 	0%,
+// 	33%,
+// 	40%,
+// 	47%,
+// 	55%,
+// 	67%,
+// 	100% {
+// 		text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #bc13fe, 0 0 50px #bc13fe, 0 0 60px #bc13fe,
+// 			0 0 80px #bc13fe, 0 0 120px #bc13fe;
+// 	}
+// 	30%,
+// 	90% {
+// 		text-shadow: none;
+// 	}
+// }
+
 @keyframes flicker_keyboard_1 {
-	0%,
-	33%,
-	40%,
-	47%,
-	55%,
-	67%,
-	100% {
-		text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #bc13fe, 0 0 50px #bc13fe, 0 0 60px #bc13fe,
-			0 0 80px #bc13fe, 0 0 120px #bc13fe;
-	}
-	30%,
-	90% {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+		text-shadow:
+		0 0 4px #fff,
+		0 0 11px #fff,
+		0 0 19px #fff,
+		0 0 40px #bc13fe,
+		0 0 80px #bc13fe,
+		0 0 90px #bc13fe,
+		0 0 100px #bc13fe,
+		0 0 150px #bc13fe;
+	}	
+	20%, 21%, 23% {        
 		text-shadow: none;
 	}
 }
+
 .row {
 	display: flex;
 }
@@ -104,9 +122,9 @@ body {
 	color: #fff;
 	animation: flicker 1.5s infinite alternate;
 }
-.neon_keyboard_flicker {
+.neon_keyboard_flicker-1 {
 	color: #fff;
-	animation: flicker_keyboard_1 1.5s infinite alternate;
+	animation: flicker_keyboard_1 2.5s infinite alternate; 
 }
 .key {
 	display: flex;
@@ -176,7 +194,12 @@ body {
 }
 .key[data-code="Enter"] {
 	width: 167px;
-	animation: flicker_keyboard_1 1.5s infinite alternate;
+}
+.key[data-code="KeyW"] {
+	animation: flicker_keyboard_1 5s infinite alternate;
+}
+.key[data-code="KeyD"] {
+	animation: flicker_keyboard_1 .5s infinite alternate;
 }
 .key[data-code="ShiftLeft"],
 .key[data-code="ShiftRight"] {
