@@ -753,6 +753,8 @@ const catchCapsKey = (event) => {
 };
 const catchShiftKeys = (event) => {
   if (event.code === 'ShiftLeft' && !event.altKey) {
+    console.log(event);
+    if (event.repeat) return;
     rerenderKeyContent(event);
   }
 };
