@@ -78,18 +78,19 @@ body {
 }
 
 @keyframes flicker_keyboard_1 {
-  0%, 18%, 22%, 25%, 53%, 57%, 100% {
-		text-shadow:
-		0 0 4px #fff,
-		0 0 11px #fff,
-		0 0 19px #fff,
-		0 0 40px #bc13fe,
-		0 0 80px #bc13fe,
-		0 0 90px #bc13fe,
-		0 0 100px #bc13fe,
-		0 0 150px #bc13fe;
-	}	
-	20%, 21%, 23% {        
+	0%,
+	18%,
+	22%,
+	25%,
+	53%,
+	57%,
+	100% {
+		text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #bc13fe, 0 0 80px #bc13fe, 0 0 90px #bc13fe,
+			0 0 100px #bc13fe, 0 0 150px #bc13fe;
+	}
+	20%,
+	21%,
+	23% {
 		text-shadow: none;
 	}
 }
@@ -108,7 +109,7 @@ body {
 }
 .neon_keyboard_flicker-1 {
 	color: #fff;
-	animation: flicker_keyboard_1 2.5s infinite alternate; 
+	animation: flicker_keyboard_1 2.5s infinite alternate;
 }
 .key {
 	display: flex;
@@ -151,7 +152,11 @@ body {
 // 	background-color: #bc13fe;
 // 	color: #000;
 // }
-
+.lang_description {
+	color: #fff;
+	text-align: center;
+	padding-top: 50px;
+}
 @keyframes keys_remove_animation {
 	0% {
 		background-color: #bc13fe;
@@ -164,28 +169,40 @@ body {
 }
 .key[data-code="Backspace"] {
 	width: 153px;
+	box-shadow: 0 0 0.5px #fff, 0 0 0.7px #fff, 0 0 10px #bc13fe, 0 0 12px #bc13fe, 0 0 15px #bc13fe,
+	inset 0 0 28px #bc13fe;
 }
 .key[data-code="Tab"] {
 	width: 90px;
+	box-shadow: 0 0 0.5px #fff, 0 0 0.7px #fff, 0 0 10px #bc13fe, 0 0 12px #bc13fe, 0 0 15px #bc13fe,
+	inset 0 0 28px #bc13fe;
 }
 .key[data-code="Backslash"] {
 	width: 60px;
+	box-shadow: 0 0 0.5px #fff, 0 0 0.7px #fff, 0 0 10px #bc13fe, 0 0 12px #bc13fe, 0 0 15px #bc13fe,
+	inset 0 0 28px #bc13fe;
 }
 .key[data-code="CapsLock"] {
 	width: 110px;
+	box-shadow: 0 0 0.5px #fff, 0 0 0.7px #fff, 0 0 10px #bc13fe, 0 0 12px #bc13fe, 0 0 15px #bc13fe,
+	inset 0 0 28px #bc13fe;
 }
 .key[data-code="Enter"] {
 	width: 167px;
+	box-shadow: 0 0 0.5px #fff, 0 0 0.7px #fff, 0 0 10px #bc13fe, 0 0 12px #bc13fe, 0 0 15px #bc13fe,
+	inset 0 0 28px #bc13fe;
 }
 .key[data-code="KeyW"] {
 	animation: flicker_keyboard_1 5s infinite alternate;
 }
 .key[data-code="KeyD"] {
-	animation: flicker_keyboard_1 .5s infinite alternate;
+	animation: flicker_keyboard_1 0.5s infinite alternate;
 }
 .key[data-code="ShiftLeft"],
 .key[data-code="ShiftRight"] {
 	width: 139px;
+	box-shadow: 0 0 0.5px #fff, 0 0 0.7px #fff, 0 0 10px #bc13fe, 0 0 12px #bc13fe, 0 0 15px #bc13fe,
+	inset 0 0 28px #bc13fe;
 }
 .key[data-code="Space"] {
 	width: 444px;
@@ -193,7 +210,17 @@ body {
 .key[data-code="ControlRight"],
 .key[data-code="ControlLeft"] {
 	width: 75px;
+	box-shadow: 0 0 0.5px #fff, 0 0 0.7px #fff, 0 0 10px #bc13fe, 0 0 12px #bc13fe, 0 0 15px #bc13fe,
+	inset 0 0 28px #bc13fe;
 }
 .key.active {
 	animation: keys_remove_animation 0.5s forwards;
+}
+.key[data-code="Backquote"],
+.key[data-code="Delete"],
+.key[data-code="AltLeft"],
+.key[data-code="AltRight"],
+.key[data-code="MetaLeft"] {
+	box-shadow: 0 0 0.5px #fff, 0 0 0.7px #fff, 0 0 10px #bc13fe, 0 0 12px #bc13fe, 0 0 15px #bc13fe,
+	inset 0 0 28px #bc13fe;
 }

@@ -173,6 +173,12 @@ body {
   width: 100%;
 }
 
+.lang_description {
+  color: #fff;
+  text-align: center;
+  padding-top: 50px;
+}
+
 @-webkit-keyframes keys_remove_animation {
   0% {
     background-color: #bc13fe;
@@ -196,22 +202,32 @@ body {
 }
 .key[data-code=Backspace] {
   width: 153px;
+  -webkit-box-shadow: 0 0 0.5px #fff, 0 0 0.7px #fff, 0 0 10px #bc13fe, 0 0 12px #bc13fe, 0 0 15px #bc13fe, inset 0 0 28px #bc13fe;
+          box-shadow: 0 0 0.5px #fff, 0 0 0.7px #fff, 0 0 10px #bc13fe, 0 0 12px #bc13fe, 0 0 15px #bc13fe, inset 0 0 28px #bc13fe;
 }
 
 .key[data-code=Tab] {
   width: 90px;
+  -webkit-box-shadow: 0 0 0.5px #fff, 0 0 0.7px #fff, 0 0 10px #bc13fe, 0 0 12px #bc13fe, 0 0 15px #bc13fe, inset 0 0 28px #bc13fe;
+          box-shadow: 0 0 0.5px #fff, 0 0 0.7px #fff, 0 0 10px #bc13fe, 0 0 12px #bc13fe, 0 0 15px #bc13fe, inset 0 0 28px #bc13fe;
 }
 
 .key[data-code=Backslash] {
   width: 60px;
+  -webkit-box-shadow: 0 0 0.5px #fff, 0 0 0.7px #fff, 0 0 10px #bc13fe, 0 0 12px #bc13fe, 0 0 15px #bc13fe, inset 0 0 28px #bc13fe;
+          box-shadow: 0 0 0.5px #fff, 0 0 0.7px #fff, 0 0 10px #bc13fe, 0 0 12px #bc13fe, 0 0 15px #bc13fe, inset 0 0 28px #bc13fe;
 }
 
 .key[data-code=CapsLock] {
   width: 110px;
+  -webkit-box-shadow: 0 0 0.5px #fff, 0 0 0.7px #fff, 0 0 10px #bc13fe, 0 0 12px #bc13fe, 0 0 15px #bc13fe, inset 0 0 28px #bc13fe;
+          box-shadow: 0 0 0.5px #fff, 0 0 0.7px #fff, 0 0 10px #bc13fe, 0 0 12px #bc13fe, 0 0 15px #bc13fe, inset 0 0 28px #bc13fe;
 }
 
 .key[data-code=Enter] {
   width: 167px;
+  -webkit-box-shadow: 0 0 0.5px #fff, 0 0 0.7px #fff, 0 0 10px #bc13fe, 0 0 12px #bc13fe, 0 0 15px #bc13fe, inset 0 0 28px #bc13fe;
+          box-shadow: 0 0 0.5px #fff, 0 0 0.7px #fff, 0 0 10px #bc13fe, 0 0 12px #bc13fe, 0 0 15px #bc13fe, inset 0 0 28px #bc13fe;
 }
 
 .key[data-code=KeyW] {
@@ -227,6 +243,8 @@ body {
 .key[data-code=ShiftLeft],
 .key[data-code=ShiftRight] {
   width: 139px;
+  -webkit-box-shadow: 0 0 0.5px #fff, 0 0 0.7px #fff, 0 0 10px #bc13fe, 0 0 12px #bc13fe, 0 0 15px #bc13fe, inset 0 0 28px #bc13fe;
+          box-shadow: 0 0 0.5px #fff, 0 0 0.7px #fff, 0 0 10px #bc13fe, 0 0 12px #bc13fe, 0 0 15px #bc13fe, inset 0 0 28px #bc13fe;
 }
 
 .key[data-code=Space] {
@@ -236,9 +254,20 @@ body {
 .key[data-code=ControlRight],
 .key[data-code=ControlLeft] {
   width: 75px;
+  -webkit-box-shadow: 0 0 0.5px #fff, 0 0 0.7px #fff, 0 0 10px #bc13fe, 0 0 12px #bc13fe, 0 0 15px #bc13fe, inset 0 0 28px #bc13fe;
+          box-shadow: 0 0 0.5px #fff, 0 0 0.7px #fff, 0 0 10px #bc13fe, 0 0 12px #bc13fe, 0 0 15px #bc13fe, inset 0 0 28px #bc13fe;
 }
 
 .key.active {
   -webkit-animation: keys_remove_animation 0.5s forwards;
           animation: keys_remove_animation 0.5s forwards;
+}
+
+.key[data-code=Backquote],
+.key[data-code=Delete],
+.key[data-code=AltLeft],
+.key[data-code=AltRight],
+.key[data-code=MetaLeft] {
+  -webkit-box-shadow: 0 0 0.5px #fff, 0 0 0.7px #fff, 0 0 10px #bc13fe, 0 0 12px #bc13fe, 0 0 15px #bc13fe, inset 0 0 28px #bc13fe;
+          box-shadow: 0 0 0.5px #fff, 0 0 0.7px #fff, 0 0 10px #bc13fe, 0 0 12px #bc13fe, 0 0 15px #bc13fe, inset 0 0 28px #bc13fe;
 }

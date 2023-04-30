@@ -670,7 +670,8 @@ class Key {
 
 // render
 const renderKeysToDom = () => {
-  data.eng.forEach((el) => {
+  const langArr = data.englishLang ? data.eng : data.ru;
+  langArr.forEach((el) => {
     const key = new Key(el);
     // console.log(key);
     document.querySelector('.keyboard_wrapper').append(key.keyGenerator());
@@ -690,6 +691,7 @@ const renderGlobalWrapper = () => {
     class="keyboard_display">
   </textarea>
   <div class="keyboard_wrapper neonBox"></div>
+  <p class="lang_description">Для переключения языка нажмите Alt + Shift</p>
   `;
 
   document.body.append(container);
@@ -732,18 +734,15 @@ const rerenderKeyContent = (event) => {
     }
   }
 };
-// слушатель для перерендера (капс) переделать в функцию
-// const catchCapsKey = () => {
-//   const { body } = document;
-//   body.addEventListener('keydown', (event) => {
-//     event.preventDefault();
-//     data.isCapsed = !data.isCapsed;
-//     console.log(data.isCapsed);
-//     if (event.code === 'CapsLock') {
-//       rerenderKeyContent();
-//     }
-//   });
-// };
+// сохранение в localStorage
+const saveToLocalStorage = () => {
+  localStorage.setItem('lang', data.englishLang);
+};
+// загрузка из localStorage
+const loadFromLocalStorage = () => {
+  const loadedLanguage = localStorage.getItem('lang');
+  data.englishLang = JSON.parse(loadedLanguage);
+};
 
 const catchCapsKey = (event) => {
   if (event.code === 'CapsLock') {
@@ -753,7 +752,6 @@ const catchCapsKey = (event) => {
 };
 const catchShiftKeys = (event) => {
   if (event.code === 'ShiftLeft' && !event.altKey) {
-    console.log(event);
     if (event.repeat) return;
     rerenderKeyContent(event);
   }
@@ -762,9 +760,10 @@ const catchLanguageToggleKeys = (event) => {
   if (event.code === 'ShiftLeft' && event.altKey) {
     data.englishLang = !data.englishLang;
     rerenderKeyContent(event);
+    saveToLocalStorage();
   }
 };
-// слушатель для нажатия кнопки
+// loadedLanguage
 const downKeyHandler = () => {
   const { body } = document;
   body.addEventListener('keydown', (event) => {
@@ -785,10 +784,10 @@ const upKeyHandler = () => {
     rerenderKeyContent(event);
   });
 };
-
 // init render function
 window.onload = function () {
   renderGlobalWrapper();
+  loadFromLocalStorage();
   renderKeysToDom();
   downKeyHandler();
   upKeyHandler();
