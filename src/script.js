@@ -757,6 +757,9 @@ const writeTextToDisplay = (event) => {
   if (currentKey?.innerText === 'Tab') {
     displayData.push('  ');
   }
+  if (currentKey?.innerText === 'Enter') {
+    displayData.push('\n');
+  }
   if (currentKey?.innerText.length <= 1) {
     displayData.push(currentKey.innerHTML);
   }
