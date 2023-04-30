@@ -725,13 +725,17 @@ const renderGlobalWrapper = () => {
   document.body.append(container);
   return container;
 };
-const addActiveClass = (code) => {
-  const currentKey = document.querySelector(`.key[data-code=${code}]`);
+const addActiveClass = (event) => {
+  const currentKey = document.querySelector(`.key[data-code=${event.code}]`);
+  const currentMouseTarget = event.target;
   currentKey?.classList.add('active');
+  currentMouseTarget?.classList.add('active');
 };
-const removeActiveClass = (code) => {
-  const currentKey = document.querySelector(`.key[data-code=${code}]`);
+const removeActiveClass = (event) => {
+  const currentKey = document.querySelector(`.key[data-code=${event.code}]`);
   currentKey?.classList.remove('active');
+  const currentMouseTarget = event.target;
+  currentMouseTarget?.classList.remove('active');
 };
 // функиця удаления текста с экрана
 const deleteDisplayText = () => {
@@ -750,16 +754,17 @@ const moveANewLine = () => {
 // набор текста в инпут
 const writeTextToDisplay = (event) => {
   const currentKey = document.querySelector(`.key[data-code=${event.code}]`);
-
+  const mouseClickText = event.target.innerText;
   const displayElement = document.querySelector('textarea');
   const displayData = data.display;
-  // проверка чтоб не печатались кнопки которые содержат больше 1 символа
+  // обработка клавиш
   if (currentKey?.innerText === 'Tab') {
     displayData.push('  ');
   }
   if (currentKey?.innerText === 'Enter') {
     displayData.push('\n');
   }
+  // проверка чтоб не печатались кнопки которые содержат больше 1 символа
   if (currentKey?.innerText.length <= 1) {
     displayData.push(currentKey.innerHTML);
   }
@@ -768,6 +773,23 @@ const writeTextToDisplay = (event) => {
   }
   if (currentKey?.innerText === 'Enter') {
     moveANewLine();
+  }
+  // обработка кликов
+  if (event.target?.innerText === 'Enter') {
+    displayData.push('\n');
+  }
+  if (event.target?.innerText === 'Backspace') {
+    displayData.splice(displayData.length - 1, 1);
+  }
+  // проверка на пробел
+  if (event.target?.innerText === '') {
+    displayData.push(' ');
+  }
+  if (event.target?.innerText === 'Tab') {
+    displayData.push('  ');
+  }
+  if (event.target?.innerText.length <= 1) {
+    displayData.push(mouseClickText);
   }
   displayElement.value = displayData.join('');
 };
@@ -828,7 +850,7 @@ const downKeyHandler = () => {
   const { body } = document;
   body.addEventListener('keydown', (event) => {
     event.preventDefault();
-    addActiveClass(event.code);
+    addActiveClass(event);
     writeTextToDisplay(event);
     catchShiftKeys(event);
     // проверка на капс => функция обработки капса
@@ -836,12 +858,25 @@ const downKeyHandler = () => {
     catchLanguageToggleKeys(event);
   });
 };
+const catchMouseHandler = () => {
+  const keyboardWrapper = document.querySelector('.keyboard_wrapper');
+  keyboardWrapper.addEventListener('mouseover', (event) => {
+    event.preventDefault();
+    addActiveClass(event);
+  });
+  keyboardWrapper.addEventListener('mouseout', (event) => {
+    removeActiveClass(event);
+  });
+  keyboardWrapper.addEventListener('click', (event) => {
+    writeTextToDisplay(event);
+  });
+};
 // слушатель для отжатия кнопки
 const upKeyHandler = () => {
   const { body } = document;
   body.addEventListener('keyup', (event) => {
     event.preventDefault();
-    removeActiveClass(event.code);
+    removeActiveClass(event);
     rerenderKeyContent(event);
   });
 };
@@ -852,4 +887,5 @@ window.onload = function () {
   renderKeysToDom();
   downKeyHandler();
   upKeyHandler();
+  catchMouseHandler();
 };
