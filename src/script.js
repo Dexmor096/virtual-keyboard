@@ -737,13 +737,20 @@ const removeActiveClass = (code) => {
 const deleteDisplayText = () => {
   const displayData = data.display;
   const displayElement = document.querySelector('textarea');
-  const resultToDisplay = displayData.splice(displayData.length - 1, 1).join('');
-  console.log(resultToDisplay);
+  displayData.splice(displayData.length - 1, 1).join('');
   displayElement.value = displayData.join('');
 };
+// функция переноса на новую строку
+const moveANewLine = () => {
+  const displayData = data.display.join('');
+  const displayElement = document.querySelector('textarea');
+  const newLine = '\n';
+  displayElement.value = displayData + newLine;
+};
 // набор текста в инпут
-const writeTextToDisplay = (code) => {
-  const currentKey = document.querySelector(`.key[data-code=${code}]`);
+const writeTextToDisplay = (event) => {
+  const currentKey = document.querySelector(`.key[data-code=${event.code}]`);
+
   const displayElement = document.querySelector('textarea');
   const displayData = data.display;
   // проверка чтоб не печатались кнопки которые содержат больше 1 символа
@@ -753,25 +760,11 @@ const writeTextToDisplay = (code) => {
   if (currentKey?.innerText === 'Backspace') {
     deleteDisplayText();
   }
+  if (currentKey?.innerText === 'Enter') {
+    moveANewLine();
+  }
   displayElement.value = displayData.join('');
-  // if (currentKey.innerText === 'Space') {
-  //   displayElement.value += ' ';
-  // }
-  // if (currentKey.innerText === 'Backspace') {
-  //   const displayArray = displayElement.value.trim().split('');
-  //   console.log(displayArray);
-  //   const resultToDisplay = displayArray.splice(displayArray.length, 1).join('');
-  //   displayElement.value += resultToDisplay;
-  // }
-  // displayElement.value += currentKey.innerText;
-  // console.log(currentKey.innerText);
 };
-
-// обнуление контейнера
-// const getResetContainer = () => {
-//   const { body } = document;
-//   body.innerHTML = '';
-// };
 
 // функция ререндера отдельных кнопок
 const rerenderKeyContent = (event) => {
@@ -824,13 +817,13 @@ const catchLanguageToggleKeys = (event) => {
     saveToLocalStorage();
   }
 };
-// loadedLanguage
+// слушатель для нажатия кнопки
 const downKeyHandler = () => {
   const { body } = document;
   body.addEventListener('keydown', (event) => {
     event.preventDefault();
     addActiveClass(event.code);
-    writeTextToDisplay(event.code);
+    writeTextToDisplay(event);
     catchShiftKeys(event);
     // проверка на капс => функция обработки капса
     catchCapsKey(event);
