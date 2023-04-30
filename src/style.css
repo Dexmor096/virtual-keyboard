@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Comforter+Brush&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -13,6 +14,13 @@ body {
   -webkit-transition: 0.2s;
   transition: 0.2s;
   background-color: #000;
+  cursor: url("./img/cur/NeonLinkSelect06-Green.cur"), default;
+}
+
+.keyboard_display {
+  font-family: "Amatic SC", cursive;
+  font-family: "Comforter Brush", cursive;
+  font-size: 48px;
 }
 
 .container {
@@ -52,15 +60,20 @@ body {
   margin-top: 50px;
 }
 .keyboard_display {
+  font-family: "Amatic SC", cursive;
+  font-family: "Comforter Brush", cursive;
+  font-size: 56px;
+  letter-spacing: 7px;
   width: 990px;
-  height: 150px;
+  height: 250px;
   background-color: #000;
   border-radius: 5px;
   color: #fff;
   resize: none;
-  font-size: 32px;
   outline: none;
+  cursor: url("./img/cur/NeonTextSelect03-Purple.cur"), default;
   padding-left: 10px;
+  text-shadow: 0 0 0.4px #fff, 0 0 0.5px #fff, 0 0 0.8px #fff, 0 0 1px #0fa, 0 0 2px #0fa, 0 0 3px #0fa, 0 0 4px #0fa, 0 0 5px #0fa;
 }
 .keyboard_title {
   border: 3px solid #fff;
@@ -145,7 +158,7 @@ body {
   height: 60px;
   margin: 2px;
   color: #fff;
-  cursor: pointer;
+  cursor: url("./img/cur/NeonLinkSelect04-Blue.cur"), default;
   -webkit-box-shadow: 0 0 0.2px #fff, 0 0 0.3px #fff, 0 0 3px #bc13fe, 0 0 4px #bc13fe, 0 0 5px #bc13fe, inset 0 0 10px #bc13fe;
           box-shadow: 0 0 0.2px #fff, 0 0 0.3px #fff, 0 0 3px #bc13fe, 0 0 4px #bc13fe, 0 0 5px #bc13fe, inset 0 0 10px #bc13fe;
   text-shadow: 0 0 1px #fff, 0 0 5px #fff, 0 0 9px #fff, 0 0 11px #bc13fe, 0 0 15px #bc13fe, 0 0 17px #bc13fe, 0 0 22px #bc13fe, 0 0 51px #bc13fe;

@@ -1,6 +1,7 @@
 const data = {
   isCapsed: false,
   englishLang: true,
+  display: [],
   ru: [
     {
       code: 'Backquote',
@@ -705,6 +706,28 @@ const removeActiveClass = (code) => {
   const currentKey = document.querySelector(`.key[data-code=${code}]`);
   currentKey.classList.remove('active');
 };
+// функиця удаления текста с экрана
+const deleteDisplayText = () => {
+  const displayData = data.display;
+  const displayElement = document.querySelector('textarea');
+  const resultToDisplay = displayData.splice(displayData.length - 1, 1).join('');
+  console.log(resultToDisplay);
+  displayElement.value = displayData.join('');
+};
+// набор текста в инпут
+const writeTextToDisplay = (code) => {
+  const currentKey = document.querySelector(`.key[data-code=${code}]`);
+  const displayElement = document.querySelector('textarea');
+  const displayData = data.display;
+  if (currentKey.innerText.length <= 1) {
+    displayData.push(currentKey.innerHTML);
+  }
+  if (currentKey.innerText === 'Backspace') {
+    deleteDisplayText();
+  }
+  displayElement.value = displayData.join('');
+
+};
 
 // обнуление контейнера
 // const getResetContainer = () => {
@@ -769,6 +792,7 @@ const downKeyHandler = () => {
   body.addEventListener('keydown', (event) => {
     event.preventDefault();
     addActiveClass(event.code);
+    writeTextToDisplay(event.code);
     catchShiftKeys(event);
     // проверка на капс => функция обработки капса
     catchCapsKey(event);
