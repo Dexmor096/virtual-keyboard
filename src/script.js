@@ -80,62 +80,72 @@ const data = {
       code: 'KeyQ',
       key: 'й',
       capsKey: 'Й',
+      shiftKey: 'Й',
     },
     {
       code: 'KeyW',
       key: 'ц',
       capsKey: 'Ц',
+      shiftKey: 'Ц',
     },
     {
       code: 'KeyE',
       key: 'у',
       capsKey: 'У',
+      shiftKey: 'У',
     },
     {
       code: 'KeyR',
       key: 'к',
       capsKey: 'К',
+      shiftKey: 'К',
     },
     {
       code: 'KeyT',
       key: 'е',
       capsKey: 'Е',
+      shiftKey: 'Е',
     },
     {
       code: 'KeyY',
       key: 'н',
       capsKey: 'Н',
+      shiftKey: 'Н',
     },
     {
       code: 'KeyU',
       key: 'г',
       capsKey: 'Г',
+      shiftKey: 'Г',
     },
     {
       code: 'KeyI',
       key: 'ш',
       capsKey: 'Ш',
+      shiftKey: 'Ш',
     },
     {
       code: 'KeyO',
       key: 'щ',
       capsKey: 'Щ',
+      shiftKey: 'Щ',
     },
     {
       code: 'KeyP',
       key: 'з',
       capsKey: 'З',
+      shiftKey: 'З',
     },
     {
       code: 'BracketLeft',
       key: 'х',
-      shiftKey: '{',
+      shiftKey: 'Х',
       capsKey: 'Х',
     },
     {
       code: 'BracketRight',
       key: 'ъ',
-      shiftKey: '}',
+      shiftKey: 'Ъ',
       capsKey: 'Ъ',
     },
     {
@@ -155,46 +165,55 @@ const data = {
       code: 'KeyA',
       key: 'ф',
       capsKey: 'Ф',
+      shiftKey: 'Ф',
     },
     {
       code: 'KeyS',
       key: 'ы',
       capsKey: 'Ы',
+      shiftKey: 'Ы',
     },
     {
       code: 'KeyD',
       key: 'в',
       capsKey: 'В',
+      shiftKey: 'В',
     },
     {
       code: 'KeyF',
       key: 'а',
       capsKey: 'А',
+      shiftKey: 'А',
     },
     {
       code: 'KeyG',
       key: 'п',
       capsKey: 'П',
+      shiftKey: 'П',
     },
     {
       code: 'KeyH',
       key: 'р',
       capsKey: 'Р',
+      shiftKey: 'Р',
     },
     {
       code: 'KeyJ',
       key: 'о',
       capsKey: 'О',
+      shiftKey: 'О',
     },
     {
       code: 'KeyK',
       key: 'л',
       capsKey: 'Л',
+      shiftKey: 'Л',
     },
     {
       code: 'KeyL',
       key: 'д',
       capsKey: 'Д',
+      shiftKey: 'Д',
     },
     {
       code: 'Semicolon',
@@ -207,6 +226,7 @@ const data = {
       key: 'э',
       rightAlt: 'Э',
       capsKey: 'Э',
+      shiftKey: 'Э',
     },
     {
       code: 'Enter',
@@ -220,36 +240,43 @@ const data = {
       code: 'KeyZ',
       key: 'я',
       capsKey: 'Я',
+      shiftKey: 'Я',
     },
     {
       code: 'KeyX',
       key: 'ч',
       capsKey: 'Ч',
+      shiftKey: 'Ч',
     },
     {
       code: 'KeyC',
       key: 'с',
       capsKey: 'С',
+      shiftKey: 'С',
     },
     {
       code: 'KeyV',
       key: 'м',
       capsKey: 'М',
+      shiftKey: 'М',
     },
     {
       code: 'KeyB',
       key: 'и',
       capsKey: 'И',
+      shiftKey: 'И',
     },
     {
       code: 'KeyN',
       key: 'т',
       capsKey: 'Т',
+      shiftKey: 'Т',
     },
     {
       code: 'KeyM',
       key: 'ь',
       capsKey: 'Ь',
+      shiftKey: 'Ь',
     },
     {
       code: 'Comma',
@@ -700,11 +727,11 @@ const renderGlobalWrapper = () => {
 };
 const addActiveClass = (code) => {
   const currentKey = document.querySelector(`.key[data-code=${code}]`);
-  currentKey.classList.add('active');
+  currentKey?.classList.add('active');
 };
 const removeActiveClass = (code) => {
   const currentKey = document.querySelector(`.key[data-code=${code}]`);
-  currentKey.classList.remove('active');
+  currentKey?.classList.remove('active');
 };
 // функиця удаления текста с экрана
 const deleteDisplayText = () => {
@@ -719,14 +746,25 @@ const writeTextToDisplay = (code) => {
   const currentKey = document.querySelector(`.key[data-code=${code}]`);
   const displayElement = document.querySelector('textarea');
   const displayData = data.display;
-  if (currentKey.innerText.length <= 1) {
+  // проверка чтоб не печатались кнопки которые содержат больше 1 символа
+  if (currentKey?.innerText.length <= 1) {
     displayData.push(currentKey.innerHTML);
   }
-  if (currentKey.innerText === 'Backspace') {
+  if (currentKey?.innerText === 'Backspace') {
     deleteDisplayText();
   }
   displayElement.value = displayData.join('');
-
+  // if (currentKey.innerText === 'Space') {
+  //   displayElement.value += ' ';
+  // }
+  // if (currentKey.innerText === 'Backspace') {
+  //   const displayArray = displayElement.value.trim().split('');
+  //   console.log(displayArray);
+  //   const resultToDisplay = displayArray.splice(displayArray.length, 1).join('');
+  //   displayElement.value += resultToDisplay;
+  // }
+  // displayElement.value += currentKey.innerText;
+  // console.log(currentKey.innerText);
 };
 
 // обнуление контейнера
