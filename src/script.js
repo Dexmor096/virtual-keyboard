@@ -754,6 +754,9 @@ const writeTextToDisplay = (event) => {
   const displayElement = document.querySelector('textarea');
   const displayData = data.display;
   // проверка чтоб не печатались кнопки которые содержат больше 1 символа
+  if (currentKey?.innerText === 'Tab') {
+    displayData.push('  ');
+  }
   if (currentKey?.innerText.length <= 1) {
     displayData.push(currentKey.innerHTML);
   }
