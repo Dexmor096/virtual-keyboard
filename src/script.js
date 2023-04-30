@@ -720,6 +720,7 @@ const renderGlobalWrapper = () => {
   </textarea>
   <div class="keyboard_wrapper neonBox"></div>
   <p class="lang_description">Для переключения языка нажмите Alt + Shift</p>
+  <p class="lang_description">Клавиатура создана в операционной системе Windows</p>
   `;
 
   document.body.append(container);
