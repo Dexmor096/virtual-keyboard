@@ -151,9 +151,7 @@ body {
 // 	background-color: #bc13fe;
 // 	color: #000;
 // }
-.key.active {
-	animation: keys_remove_animation 0.5s forwards;
-}
+
 @keyframes keys_remove_animation {
 	0% {
 		background-color: #bc13fe;
@@ -195,4 +193,7 @@ body {
 .key[data-code="ControlRight"],
 .key[data-code="ControlLeft"] {
 	width: 75px;
+}
+.key.active {
+	animation: keys_remove_animation 0.5s forwards;
 }

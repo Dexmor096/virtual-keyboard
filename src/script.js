@@ -718,7 +718,7 @@ const rerenderKeyContent = (event) => {
   const keySet = document.querySelectorAll('.key');
   for (let i = 0; i < keySet.length; i += 1) {
     const currentKeyText = keySet[i].innerText;
-    if (event.shiftKey) {
+    if (event.shiftKey && !event.altKey) {
       const newKeyText = langArr[i].shiftKey ? langArr[i].shiftKey : langArr[i].key;
       const resultText = currentKeyText !== langArr[i].key ? langArr[i].key : newKeyText;
       keySet[i].innerHTML = resultText;
@@ -752,14 +752,14 @@ const catchCapsKey = (event) => {
   }
 };
 const catchShiftKeys = (event) => {
-  if (event.code === 'ShiftLeft') {
+  if (event.code === 'ShiftLeft' && !event.altKey) {
     rerenderKeyContent(event);
   }
 };
 const catchLanguageToggleKeys = (event) => {
   if (event.code === 'ShiftLeft' && event.altKey) {
     data.englishLang = !data.englishLang;
-    rerenderKeyContent();
+    rerenderKeyContent(event);
   }
 };
 // слушатель для нажатия кнопки
