@@ -1,0 +1,285 @@
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Comforter+Brush&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: "Amatic SC", cursive;
+  font-size: 24px;
+  font-weight: 700;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  background-color: #000;
+  cursor: url("./img/cur/NeonLinkSelect06-Green.cur"), default;
+}
+
+.keyboard_display {
+  font-family: "Amatic SC", cursive;
+  font-family: "Comforter Brush", cursive;
+  font-size: 48px;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 10px;
+}
+
+.keyboard_wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  max-width: 990px;
+  width: 100%;
+  background-color: #e7e7e7;
+  margin-top: 50px;
+}
+.keyboard_display {
+  font-family: "Amatic SC", cursive;
+  font-family: "Comforter Brush", cursive;
+  font-size: 56px;
+  letter-spacing: 7px;
+  width: 990px;
+  height: 250px;
+  background-color: #000;
+  border-radius: 5px;
+  color: #fff;
+  resize: none;
+  outline: none;
+  cursor: url("./img/cur/NeonTextSelect03-Purple.cur"), default;
+  padding-left: 10px;
+  text-shadow: 0 0 0.4px #fff, 0 0 0.5px #fff, 0 0 0.8px #fff, 0 0 1px #0fa, 0 0 2px #0fa, 0 0 3px #0fa, 0 0 4px #0fa, 0 0 5px #0fa;
+}
+.keyboard_title {
+  border: 3px solid #fff;
+  border-radius: 10px;
+  padding: 25px;
+  margin-bottom: 60px;
+  -webkit-box-shadow: 0 0 0.24px #fff, 0 0 0.24px #fff, 0 0 48px #0fa, 0 0 19px #0fa, 0 0 67px #0fa, inset 0 0 32px #0fa;
+          box-shadow: 0 0 0.24px #fff, 0 0 0.24px #fff, 0 0 48px #0fa, 0 0 19px #0fa, 0 0 67px #0fa, inset 0 0 32px #0fa;
+  -webkit-animation: flicker 1.5s infinite alternate;
+          animation: flicker 1.5s infinite alternate;
+}
+
+@-webkit-keyframes flicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #0fa, 0 0 50px #0fa, 0 0 60px #0fa, 0 0 80px #0fa, 0 0 120px #0fa;
+  }
+  20%, 24%, 55% {
+    text-shadow: none;
+  }
+}
+
+@keyframes flicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #0fa, 0 0 50px #0fa, 0 0 60px #0fa, 0 0 80px #0fa, 0 0 120px #0fa;
+  }
+  20%, 24%, 55% {
+    text-shadow: none;
+  }
+}
+@-webkit-keyframes flicker_keyboard_1 {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #bc13fe, 0 0 80px #bc13fe, 0 0 90px #bc13fe, 0 0 100px #bc13fe, 0 0 150px #bc13fe;
+  }
+  20%, 21%, 23% {
+    text-shadow: none;
+  }
+}
+@keyframes flicker_keyboard_1 {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #bc13fe, 0 0 80px #bc13fe, 0 0 90px #bc13fe, 0 0 100px #bc13fe, 0 0 150px #bc13fe;
+  }
+  20%, 21%, 23% {
+    text-shadow: none;
+  }
+}
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.neonBox {
+  -webkit-box-shadow: 0 0 0.5px #fff, 0 0 0.7px #fff, 0 0 10px #bc13fe, 0 0 12px #bc13fe, 0 0 15px #bc13fe, inset 0 0 10px #bc13fe;
+          box-shadow: 0 0 0.5px #fff, 0 0 0.7px #fff, 0 0 10px #bc13fe, 0 0 12px #bc13fe, 0 0 15px #bc13fe, inset 0 0 10px #bc13fe;
+}
+
+.neon_text_flicker {
+  color: #fff;
+  -webkit-animation: flicker 1.5s infinite alternate;
+          animation: flicker 1.5s infinite alternate;
+}
+
+.neon_keyboard_flicker-1 {
+  color: #fff;
+  -webkit-animation: flicker_keyboard_1 2.5s infinite alternate;
+          animation: flicker_keyboard_1 2.5s infinite alternate;
+}
+
+.key {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: hsl(0deg, 2%, 13%);
+  border-radius: 5px;
+  width: 60px;
+  height: 60px;
+  margin: 2px;
+  color: #fff;
+  cursor: url("./img/cur/NeonLinkSelect04-Blue.cur"), default;
+  -webkit-box-shadow: 0 0 0.2px #fff, 0 0 0.3px #fff, 0 0 3px #bc13fe, 0 0 4px #bc13fe, 0 0 5px #bc13fe, inset 0 0 10px #bc13fe;
+          box-shadow: 0 0 0.2px #fff, 0 0 0.3px #fff, 0 0 3px #bc13fe, 0 0 4px #bc13fe, 0 0 5px #bc13fe, inset 0 0 10px #bc13fe;
+  text-shadow: 0 0 1px #fff, 0 0 5px #fff, 0 0 9px #fff, 0 0 11px #bc13fe, 0 0 15px #bc13fe, 0 0 17px #bc13fe, 0 0 22px #bc13fe, 0 0 51px #bc13fe;
+}
+.key_backspace {
+  width: 125px;
+}
+.key_tab {
+  width: 90px;
+}
+.key_slash {
+  width: 95px;
+}
+.key_capsLock {
+  width: 98px;
+}
+.key_enter {
+  width: 153px;
+}
+.key_shift {
+  width: 125px;
+}
+.key_space {
+  max-width: 455px;
+  width: 100%;
+}
+
+.lang_description {
+  color: #fff;
+  text-align: center;
+  padding-top: 40px;
+}
+
+@-webkit-keyframes keys_remove_animation {
+  0% {
+    background-color: #bc13fe;
+    color: #fff;
+  }
+  100% {
+    background-color: #fff;
+    color: #fff;
+  }
+}
+
+@keyframes keys_remove_animation {
+  0% {
+    background-color: #bc13fe;
+    color: #fff;
+  }
+  100% {
+    background-color: #fff;
+    color: #fff;
+  }
+}
+.key[data-code=Backspace] {
+  width: 153px;
+  -webkit-box-shadow: 0 0 0.5px #fff, 0 0 0.7px #fff, 0 0 10px #bc13fe, 0 0 12px #bc13fe, 0 0 15px #bc13fe, inset 0 0 28px #bc13fe;
+          box-shadow: 0 0 0.5px #fff, 0 0 0.7px #fff, 0 0 10px #bc13fe, 0 0 12px #bc13fe, 0 0 15px #bc13fe, inset 0 0 28px #bc13fe;
+}
+
+.key[data-code=Tab] {
+  width: 90px;
+  -webkit-box-shadow: 0 0 0.5px #fff, 0 0 0.7px #fff, 0 0 10px #bc13fe, 0 0 12px #bc13fe, 0 0 15px #bc13fe, inset 0 0 28px #bc13fe;
+          box-shadow: 0 0 0.5px #fff, 0 0 0.7px #fff, 0 0 10px #bc13fe, 0 0 12px #bc13fe, 0 0 15px #bc13fe, inset 0 0 28px #bc13fe;
+}
+
+.key[data-code=Backslash] {
+  width: 60px;
+  -webkit-box-shadow: 0 0 0.5px #fff, 0 0 0.7px #fff, 0 0 10px #bc13fe, 0 0 12px #bc13fe, 0 0 15px #bc13fe, inset 0 0 28px #bc13fe;
+          box-shadow: 0 0 0.5px #fff, 0 0 0.7px #fff, 0 0 10px #bc13fe, 0 0 12px #bc13fe, 0 0 15px #bc13fe, inset 0 0 28px #bc13fe;
+}
+
+.key[data-code=CapsLock] {
+  width: 110px;
+  -webkit-box-shadow: 0 0 0.5px #fff, 0 0 0.7px #fff, 0 0 10px #bc13fe, 0 0 12px #bc13fe, 0 0 15px #bc13fe, inset 0 0 28px #bc13fe;
+          box-shadow: 0 0 0.5px #fff, 0 0 0.7px #fff, 0 0 10px #bc13fe, 0 0 12px #bc13fe, 0 0 15px #bc13fe, inset 0 0 28px #bc13fe;
+}
+
+.key[data-code=Enter] {
+  width: 167px;
+  -webkit-box-shadow: 0 0 0.5px #fff, 0 0 0.7px #fff, 0 0 10px #bc13fe, 0 0 12px #bc13fe, 0 0 15px #bc13fe, inset 0 0 28px #bc13fe;
+          box-shadow: 0 0 0.5px #fff, 0 0 0.7px #fff, 0 0 10px #bc13fe, 0 0 12px #bc13fe, 0 0 15px #bc13fe, inset 0 0 28px #bc13fe;
+}
+
+.key[data-code=KeyW] {
+  -webkit-animation: flicker_keyboard_1 5s infinite alternate;
+          animation: flicker_keyboard_1 5s infinite alternate;
+}
+
+.key[data-code=KeyD] {
+  -webkit-animation: flicker_keyboard_1 0.5s infinite alternate;
+          animation: flicker_keyboard_1 0.5s infinite alternate;
+}
+
+.key[data-code=ShiftLeft],
+.key[data-code=ShiftRight] {
+  width: 139px;
+  -webkit-box-shadow: 0 0 0.5px #fff, 0 0 0.7px #fff, 0 0 10px #bc13fe, 0 0 12px #bc13fe, 0 0 15px #bc13fe, inset 0 0 28px #bc13fe;
+          box-shadow: 0 0 0.5px #fff, 0 0 0.7px #fff, 0 0 10px #bc13fe, 0 0 12px #bc13fe, 0 0 15px #bc13fe, inset 0 0 28px #bc13fe;
+}
+
+.key[data-code=Space] {
+  width: 444px;
+}
+
+.key[data-code=ControlRight],
+.key[data-code=ControlLeft] {
+  width: 75px;
+  -webkit-box-shadow: 0 0 0.5px #fff, 0 0 0.7px #fff, 0 0 10px #bc13fe, 0 0 12px #bc13fe, 0 0 15px #bc13fe, inset 0 0 28px #bc13fe;
+          box-shadow: 0 0 0.5px #fff, 0 0 0.7px #fff, 0 0 10px #bc13fe, 0 0 12px #bc13fe, 0 0 15px #bc13fe, inset 0 0 28px #bc13fe;
+}
+
+.key.active {
+  -webkit-animation: keys_remove_animation 0.5s forwards;
+          animation: keys_remove_animation 0.5s forwards;
+}
+
+.key[data-code=Backquote],
+.key[data-code=Delete],
+.key[data-code=AltLeft],
+.key[data-code=AltRight],
+.key[data-code=MetaLeft] {
+  -webkit-box-shadow: 0 0 0.5px #fff, 0 0 0.7px #fff, 0 0 10px #bc13fe, 0 0 12px #bc13fe, 0 0 15px #bc13fe, inset 0 0 28px #bc13fe;
+          box-shadow: 0 0 0.5px #fff, 0 0 0.7px #fff, 0 0 10px #bc13fe, 0 0 12px #bc13fe, 0 0 15px #bc13fe, inset 0 0 28px #bc13fe;
+}
